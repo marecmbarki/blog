@@ -42,3 +42,12 @@ function newComment($postId, $author, $comment) {
     $req = $db->prepare('INSERT INTO comments(postId, author, comment) VALUES(?, ?, ?)');
     $req->execute(array($postId, $author, $comment));
 }
+
+function getComments($postId) {
+    $db = dbConnect();
+    $req = $db->prepare('SELECT author, comment FROM comments WHERE postId = ? ORDER BY ID DESC');
+    $req->execute(array($postId));
+    $comments = $req;
+
+    return $comments;
+}

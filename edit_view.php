@@ -21,6 +21,9 @@
     </div>
 </form>
 <h3>Commentaires du Post</h3>
-
+<?php while ($comment = $comments->fetch()) { ?>
+<p><strong><?= htmlspecialchars($comment['author']) ?></strong></p>
+<p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+<?php } ?>
 <?php $content = ob_get_clean() ?>
 <?php require('template.php'); ?>

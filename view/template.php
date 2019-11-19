@@ -1,3 +1,5 @@
+<?php $session ?>
+
 <!DOCTYPE html>
 <html>
     <head>

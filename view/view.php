@@ -8,7 +8,7 @@
         <p><label>Message : <input type="text" name="message" /></label></p>
         <p><input type="submit" /></p>
     </form> 
-    <a href="login_view.php">Login</a>
+    <a href="index.php?action=login">Login</a>
 </div>
 <div>
     <?php while($post = $posts->fetch()) { ?>

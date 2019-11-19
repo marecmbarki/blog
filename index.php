@@ -15,6 +15,16 @@ if (isset($_GET['action'])) {
         if (isset($_POST['author'], $_POST['comment'])) {
             addComment($_GET['id'], $_POST['author'], $_POST['comment']);
         }
+    } elseif ($_GET['action'] == 'login') {
+        login();        
+    } elseif ($_GET['action'] == 'admin') {
+        if (isset($_POST['password'])) {
+            if($_POST['password'] == 'password') {
+                getAdminSpace();
+            } else {
+                listPosts();
+            }
+        }
     }
 } else {
     listPosts();

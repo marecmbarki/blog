@@ -29,3 +29,11 @@ function addComment($postId, $author, $comment) {
 
     require('view/post_view.php');
 }
+
+function login() {
+    require('view/login_view.php');
+}
+
+function getAdminSpace() {
+    require('view/admin_view.php');
+}

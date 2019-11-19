@@ -21,6 +21,7 @@
             <input type="submit" />
         </div>
     </form>
+    <a href="index.php">Retour aux billets</a>
 </div>    
 <div>    
     <h3>Commentaires du Post</h3>
@@ -30,5 +31,5 @@
         </p>
     <?php } ?>
 </div>
-<?php $content = ob_get_clean() ?>
+<?php $content = ob_get_clean(); ?>
 <?php require('template.php'); ?>

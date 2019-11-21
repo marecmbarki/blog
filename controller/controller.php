@@ -59,3 +59,19 @@ function postDelete ($postId) {
 
     require('view/view.php');
 }
+
+function deleteComments($postId) {
+    getDeleteComments($postId);
+    $post = getPost($postId);
+    $comments = getComments($postId);
+
+    require('view/post_view.php');
+}
+
+function deleteComment($postId, $commentId) {
+    getDeleteComment($postId, $commentId);
+    $post = getPost($postId);
+    $comments = getComments($postId);
+
+    require('view/post_view.php');
+}

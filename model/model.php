@@ -45,7 +45,7 @@ function newComment($postId, $author, $comment) {
 
 function getComments($postId) {
     $db = dbConnect();
-    $req = $db->prepare('SELECT author, comment FROM comments WHERE postId = ? ORDER BY ID DESC');
+    $req = $db->prepare('SELECT author, comment, id FROM comments WHERE postId = ? ORDER BY ID DESC');
     $req->execute(array($postId));
     $comments = $req;
 
@@ -68,4 +68,10 @@ function getDeleteComments($postId) {
     $db = dbConnect();
     $req = $db->prepare('DELETE FROM comments WHERE postId = ?');
     $req->execute(array($postId));
+}
+
+function getDeleteComment($postId, $commentId) {
+    $db = dbConnect();
+    $req = $db->prepare('DELETE FROM comments WHERE postId = ? AND id = ?');
+    $req->execute(array($postId, $commentId));
 }

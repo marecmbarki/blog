@@ -37,6 +37,10 @@ if (isset($_GET['action'])) {
         if (isset($_GET['id'])) {
             postDelete($_GET['id']);
         }
+    } elseif ($_GET['action'] == 'deleteComment') {
+        if (isset($_GET['id'], $_GET['postId'])) {
+            deleteComment($_GET['postId'], $_GET['id']);
+        }
     }
 } else {
     listPosts();

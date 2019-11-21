@@ -31,6 +31,7 @@
         <p>
             <strong><?= htmlspecialchars($comment['author']) ?></strong> : <?= nl2br(htmlspecialchars($comment['comment'])) ?>
         </p>
+        <a href="index.php?action=deleteComment&amp;postId=<?= $_GET['id'] ?>&amp;id=<?= $comment['id'] ?>">Supprimer le commentaire</a>
     <?php } ?>
 </div>
 <?php $content = ob_get_clean(); ?>

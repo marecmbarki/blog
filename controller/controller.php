@@ -37,3 +37,17 @@ function login() {
 function getAdminSpace() {
     require('view/admin_view.php');
 }
+
+function getUpdatePage($postId) {
+    $post = getPost($postId);
+    
+    require('view/update.php');
+}
+
+function postUpdate($name, $message, $postId) {    
+    updatePost($name, $message, $postId);
+    $post = getPost($postId);
+    $comments = getComments($postId);
+    
+    require('view/post_view.php');
+}

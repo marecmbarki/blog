@@ -21,6 +21,7 @@
             <input type="submit" />
         </div>
     </form>
+    <a href="index.php?action=editArticle&amp;id=<?= $_GET['id'] ?>">Modifier le Post</a>
     <a href="index.php">Retour aux billets</a>
 </div>    
 <div>    

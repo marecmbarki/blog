@@ -9,7 +9,11 @@ if (isset($_GET['action'])) {
         }
     } elseif ($_GET['action'] == 'displayPost') {
         if (isset($_GET['id'])) {
-            readPost($_GET['id']);
+            if(isset($_POST['nameUpdated'], $_POST['messageUpdated'])) {
+                postUpdate($_POST['nameUpdated'], $_POST['messageUpdated'], $_GET['id']);
+            } else {
+                readPost($_GET['id']);
+            }
         }
     } elseif ($_GET['action'] == 'addComment') {
         if (isset($_POST['author'], $_POST['comment'])) {
@@ -19,11 +23,15 @@ if (isset($_GET['action'])) {
         login();        
     } elseif ($_GET['action'] == 'admin') {
         if (isset($_POST['password'])) {
-            if($_POST['password'] == 'password') {
+            if($_POST['password'] == 'p') {
                 getAdminSpace();
             } else {
                 listPosts();
             }
+        }
+    } elseif ($_GET['action'] == 'editArticle') {
+        if (isset($_GET['id'])) {
+            getUpdatePage($_GET['id']);
         }
     }
 } else {

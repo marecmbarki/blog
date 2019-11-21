@@ -51,3 +51,9 @@ function getComments($postId) {
 
     return $comments;
 }
+
+function updatePost($name, $message, $postId) {
+    $db = dbConnect();
+    $req = $db->prepare('UPDATE blog SET name = ?, message = ? WHERE id = ?');
+    $req->execute(array($name, $message, $postId));
+}

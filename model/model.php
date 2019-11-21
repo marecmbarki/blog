@@ -57,3 +57,15 @@ function updatePost($name, $message, $postId) {
     $req = $db->prepare('UPDATE blog SET name = ?, message = ? WHERE id = ?');
     $req->execute(array($name, $message, $postId));
 }
+
+function getDeletePost($postId) {
+    $db = dbConnect();
+    $req = $db->prepare('DELETE FROM blog WHERE id = ?');
+    $req->execute(array($postId));
+}
+
+function getDeleteComments($postId) {
+    $db = dbConnect();
+    $req = $db->prepare('DELETE FROM comments WHERE postId = ?');
+    $req->execute(array($postId));
+}

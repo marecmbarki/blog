@@ -40,7 +40,7 @@ function getAdminSpace() {
 
 function getUpdatePage($postId) {
     $post = getPost($postId);
-    
+
     require('view/update.php');
 }
 
@@ -50,4 +50,12 @@ function postUpdate($name, $message, $postId) {
     $comments = getComments($postId);
     
     require('view/post_view.php');
+}
+
+function postDelete ($postId) {
+    getDeletePost($postId);
+    getDeleteComments($postId);
+    $posts = displayPosts();
+
+    require('view/view.php');
 }

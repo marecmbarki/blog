@@ -33,6 +33,10 @@ if (isset($_GET['action'])) {
         if (isset($_GET['id'])) {
             getUpdatePage($_GET['id']);
         }
+    } elseif ($_GET['action'] == 'deleteArticle') {
+        if (isset($_GET['id'])) {
+            postDelete($_GET['id']);
+        }
     }
 } else {
     listPosts();

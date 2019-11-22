@@ -45,6 +45,10 @@ if (isset($_GET['action'])) {
         if (isset($_SESSION['login'])) {
             displayAdminSpace();
         }
+    } elseif ($_GET['action'] == 'reportComment') {
+        if(isset($_GET['postId'])) {
+            reportComment($_GET['postId']);
+        }
     }
 } else {
     listPosts();

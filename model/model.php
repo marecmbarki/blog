@@ -45,7 +45,7 @@ function newComment($postId, $author, $comment) {
 
 function getComments($postId) {
     $db = dbConnect();
-    $req = $db->prepare('SELECT author, comment, id FROM comments WHERE postId = ? ORDER BY ID DESC');
+    $req = $db->prepare('SELECT author, comment, id, flag FROM comments WHERE postId = ? ORDER BY ID DESC');
     $req->execute(array($postId));
     $comments = $req;
 
@@ -82,4 +82,18 @@ function getAdmin () {
     $admin = $req->fetch();
 
     return $admin;
+}
+
+function reportAComment($postId) {
+    $db = dbConnect();
+    $req = $db->prepare('UPDATE comments SET flag = 1 WHERE postId = ?');
+    $req->execute(array($postId));
+}
+
+function getReportedComments() {
+    $db = dbConnect();
+    $req = $db->query('SELECT id, author, comment, flag, postId FROM comments WHERE flag = 1 ORDER BY ID DESC');
+    $reportedComments = $req;
+
+    return $reportedComments;
 }

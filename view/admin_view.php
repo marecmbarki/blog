@@ -1,6 +1,7 @@
 
 <?php $title = 'ESPACE ADMIN'; ?>
     <?php ob_start(); ?>
+        <a href="index.php">Quitter espace admin</a>
         <h1>BIENVENUE dans l'espace admin <?= $_SESSION['login'] ?> ! </h1>
         <h2>Nouveau Billet</h2>
         <form action="index.php?action=createPost" method="POST">
@@ -19,6 +20,16 @@
     $posts->closeCursor();
     ?>
         </div>
-    <?php $content = ob_get_clean(); ?>
+        <div>
+            <p>Liste des commentaires signalés : </p>
+            <?php while($reportedComment = $reportedComments->fetch()) { ?>
+                <p>
+                <strong><?= htmlspecialchars($reportedComment['author']) ?></strong> : <?= nl2br(htmlspecialchars($reportedComment['comment'])) ?>
+            </p>
+            <a href="index.php?id=<?= $reportedComment['postId'] ?>&amp;action=displayPost">Voir le post</a>
+            <?php } ?>
+
+        </div>
+        <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>

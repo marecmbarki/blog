@@ -6,7 +6,8 @@ function createPost() {
     $admin = getAdmin();
     newPost();
     $posts = displayPosts();
-    
+    $reportedComments = getReportedComments();
+
     require('view/admin_view.php');
 }
 
@@ -27,7 +28,7 @@ function addComment($postId, $author, $comment) {
     newComment($postId, $author, $comment);
     $post = getPost($postId);
     $comments = getComments($postId);
-
+    
     require('view/post_view.php');
 }
 
@@ -82,6 +83,10 @@ function getAdminInfos() {
 function displayAdminSpace() {
     $admin = getAdmin();
     $posts = displayPosts();
-
+    $reportedComments = getReportedComments();
     require('view/admin_view.php');
+}
+
+function reportComment($postId) {
+    reportAComment($postId);
 }

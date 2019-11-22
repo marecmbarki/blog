@@ -1,7 +1,7 @@
 
 <?php $title = 'LOG'; ?>
 <?php ob_start(); ?>
-<form action="index.php?action=admin" method ='post'>
+<form action="index.php?action=adminChecking" method ='post'>
     <label> Login : <input type="text" name="login" /></label>
     <label> Password : <input type="text" name="password" /></label>
     <input type="submit" />

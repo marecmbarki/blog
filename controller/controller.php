@@ -3,10 +3,11 @@
 require('model/model.php');
 
 function createPost() {
+    $admin = getAdmin();
     newPost();
     $posts = displayPosts();
-        
-    require('view/view.php');
+    
+    require('view/admin_view.php');
 }
 
 function listPosts() {
@@ -74,6 +75,13 @@ function getLogView() {
 
 function getAdminInfos() {
     $admin = getAdmin();
+
+    require('view/adminCheck_view.php');
+}
+
+function displayAdminSpace() {
+    $admin = getAdmin();
+    $posts = displayPosts();
 
     require('view/admin_view.php');
 }

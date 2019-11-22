@@ -1,11 +1,15 @@
 <?php
 
+session_start();
+
 require('controller/controller.php');
 
 if (isset($_GET['action'])) {
     if($_GET['action'] == 'createPost') {
         if(isset($_POST['name'], $_POST['message'])) {
-            createPost();
+            if (isset($_SESSION['login'])) {
+                createPost();
+            }
         }
     } elseif ($_GET['action'] == 'displayPost') {
         if (isset($_GET['id'])) {
@@ -33,9 +37,13 @@ if (isset($_GET['action'])) {
         }
     } elseif ($_GET['action'] == 'logView') {
         getLogView();
-    } elseif ($_GET['action'] == 'admin') {
+    } elseif ($_GET['action'] == 'adminChecking') {
         if(isset($_POST['login'], $_POST['password'])) {
             getAdminInfos();
+        }
+    } elseif($_GET['action'] == 'admin') {
+        if (isset($_SESSION['login'])) {
+            displayAdminSpace();
         }
     }
 } else {

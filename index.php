@@ -19,16 +19,6 @@ if (isset($_GET['action'])) {
         if (isset($_POST['author'], $_POST['comment'])) {
             addComment($_GET['id'], $_POST['author'], $_POST['comment']);
         }
-    } elseif ($_GET['action'] == 'login') {
-        login();        
-    } elseif ($_GET['action'] == 'admin') {
-        if (isset($_POST['password'])) {
-            if($_POST['password'] == 'p') {
-                getAdminSpace();
-            } else {
-                listPosts();
-            }
-        }
     } elseif ($_GET['action'] == 'editArticle') {
         if (isset($_GET['id'])) {
             getUpdatePage($_GET['id']);
@@ -40,6 +30,12 @@ if (isset($_GET['action'])) {
     } elseif ($_GET['action'] == 'deleteComment') {
         if (isset($_GET['id'], $_GET['postId'])) {
             deleteComment($_GET['postId'], $_GET['id']);
+        }
+    } elseif ($_GET['action'] == 'logView') {
+        getLogView();
+    } elseif ($_GET['action'] == 'admin') {
+        if(isset($_POST['login'], $_POST['password'])) {
+            getAdminInfos();
         }
     }
 } else {

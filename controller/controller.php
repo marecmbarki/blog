@@ -30,14 +30,6 @@ function addComment($postId, $author, $comment) {
     require('view/post_view.php');
 }
 
-function login() {
-    require('view/login_view.php');
-}
-
-function getAdminSpace() {
-    require('view/admin_view.php');
-}
-
 function getUpdatePage($postId) {
     $post = getPost($postId);
 
@@ -74,4 +66,14 @@ function deleteComment($postId, $commentId) {
     $comments = getComments($postId);
 
     require('view/post_view.php');
+}
+
+function getLogView() {
+    require('view/log_view.php');
+}
+
+function getAdminInfos() {
+    $admin = getAdmin();
+
+    require('view/admin_view.php');
 }

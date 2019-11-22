@@ -75,3 +75,11 @@ function getDeleteComment($postId, $commentId) {
     $req = $db->prepare('DELETE FROM comments WHERE postId = ? AND id = ?');
     $req->execute(array($postId, $commentId));
 }
+
+function getAdmin () {
+    $db = dbConnect();
+    $req = $db->query('SELECT login, password, id FROM admin');
+    $admin = $req->fetch();
+
+    return $admin;
+}

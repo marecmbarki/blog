@@ -75,6 +75,7 @@ function registerView() {
 }
 
 function addUser($login, $password) {
+    $password = sha1($password);
     newAdmin($login, $password);
     $admin = checkAdmin($login);
     

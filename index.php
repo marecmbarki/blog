@@ -46,8 +46,8 @@ if (isset($_GET['action'])) {
             displayAdminSpace();
         }
     } elseif ($_GET['action'] == 'reportComment') {
-        if(isset($_GET['postId'])) {
-            reportComment($_GET['postId']);
+        if(isset($_GET['postId'], $_GET['id'])) {
+            reportComment($_GET['postId'], $_GET['id']);
         }
     }
 } else {

@@ -84,10 +84,10 @@ function getAdmin () {
     return $admin;
 }
 
-function reportAComment($postId) {
+function reportAComment($postId, $id) {
     $db = dbConnect();
-    $req = $db->prepare('UPDATE comments SET flag = 1 WHERE postId = ?');
-    $req->execute(array($postId));
+    $req = $db->prepare('UPDATE comments SET flag = 1 WHERE postId = ? AND id = ?');
+    $req->execute(array($postId, $id));
 }
 
 function getReportedComments() {

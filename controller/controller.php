@@ -87,6 +87,10 @@ function displayAdminSpace() {
     require('view/admin_view.php');
 }
 
-function reportComment($postId) {
-    reportAComment($postId);
+function reportComment($postId, $id) {
+    reportAComment($postId, $id);
+    $post = getPost($postId);
+    $comments = getComments($postId);
+
+    require('view/post_view.php');
 }

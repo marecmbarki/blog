@@ -76,11 +76,18 @@ function getDeleteComment($postId, $commentId) {
     $req->execute(array($postId, $commentId));
 }
 
-function getAdmin () {
+function newAdmin($login, $password) {
     $db = dbConnect();
-    $req = $db->query('SELECT login, password, id FROM admin');
-    $admin = $req->fetch();
+    $req = $db->prepare('INSERT INTO admin(login, password) VALUES(?, ?)');
+    $req->execute(array($login, $password));
+}
 
+function checkAdmin($login) {
+    $db = dbConnect();
+    $req = $db->prepare('SELECT login, password, id FROM admin WHERE login = ?');
+    $req->execute(array($login));
+    $admin = $req->fetch();
+    
     return $admin;
 }
 

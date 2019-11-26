@@ -1,5 +1,5 @@
 
-<?php if($_POST['login'] != $admin['login'] && $_POST['password'] != $admin['password']) { ?>
+<?php if($_POST['password'] != $admin['password']) { ?>
     <?php $title = 'ERREUR'; ?>
     <?php ob_start(); ?>
         <h1>Erreur, login ou password incorrect.</h1>

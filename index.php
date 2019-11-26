@@ -35,11 +35,17 @@ if (isset($_GET['action'])) {
         if (isset($_GET['id'], $_GET['postId'])) {
             deleteComment($_GET['postId'], $_GET['id']);
         }
+    } elseif ($_GET['action'] == 'registerView') {
+        registerView();
+    } elseif ($_GET['action'] == 'addUser') {
+        if(isset($_POST['login'], $_POST['password'])) {
+            addUser($_POST['login'], $_POST['password']);
+        }
     } elseif ($_GET['action'] == 'logView') {
         getLogView();
     } elseif ($_GET['action'] == 'adminChecking') {
         if(isset($_POST['login'], $_POST['password'])) {
-            getAdminInfos();
+            getAdminInfos($_POST['login']);
         }
     } elseif($_GET['action'] == 'admin') {
         if (isset($_SESSION['login'])) {

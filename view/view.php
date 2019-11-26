@@ -6,7 +6,8 @@
 } ?>
 <div>    
     <h1>Mon Blog</h1> 
-    <a href="index.php?action=logView">Login</a>
+    <a href="index.php?action=logView">CONNEXION</a>
+    <a href="index.php?action=registerView">INSCRITPTION</a>
 </div>
 <div>
     <?php while($post = $posts->fetch()) { ?>

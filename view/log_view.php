@@ -1,6 +1,7 @@
 
 <?php $title = 'LOG'; ?>
 <?php ob_start(); ?>
+<h1>Connexion</h1>
 <form action="index.php?action=adminChecking" method ='post'>
     <label> Login : <input type="text" name="login" /></label>
     <label> Password : <input type="text" name="password" /></label>

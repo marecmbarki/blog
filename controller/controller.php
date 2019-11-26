@@ -70,18 +70,28 @@ function deleteComment($postId, $commentId) {
     require('view/post_view.php');
 }
 
+function registerView() {
+    require('view/register_view.php');
+}
+
+function addUser($login, $password) {
+    newAdmin($login, $password);
+    $admin = checkAdmin($login);
+    
+    require('view/adminCheck_view.php');
+}
+
 function getLogView() {
     require('view/log_view.php');
 }
 
-function getAdminInfos() {
-    $admin = getAdmin();
-
+function getAdminInfos($login) {
+    $admin = checkAdmin($login);
+    
     require('view/adminCheck_view.php');
 }
 
 function displayAdminSpace() {
-    $admin = getAdmin();
     $posts = displayPosts();
     $reportedComments = getReportedComments();
     require('view/admin_view.php');

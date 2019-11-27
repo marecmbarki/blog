@@ -105,3 +105,7 @@ function reportComment($postId, $id) {
 
     require('view/post_view.php');
 }
+
+function displayError() {
+    require('view/error_view.php');
+}

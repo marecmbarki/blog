@@ -10,6 +10,9 @@ if (isset($_GET['action'])) {
             if (isset($_SESSION['login'])) {
                 createPost();
             }
+        } else {
+            $_SESSION['error'] = 'createPost';
+            displayError();
         }
     } elseif ($_GET['action'] == 'displayPost') {
         if (isset($_GET['id'])) {
@@ -20,8 +23,11 @@ if (isset($_GET['action'])) {
             }
         }
     } elseif ($_GET['action'] == 'addComment') {
-        if (isset($_POST['author'], $_POST['comment'])) {
+        if (!empty($_POST['author']) && !empty($_POST['comment'])) {
             addComment($_GET['id'], $_POST['author'], $_POST['comment']);
+        } else {
+            $_SESSION['error'] = 'addComment';
+            displayError();
         }
     } elseif ($_GET['action'] == 'editArticle') {
         if (isset($_GET['id'])) {
@@ -38,14 +44,25 @@ if (isset($_GET['action'])) {
     } elseif ($_GET['action'] == 'registerView') {
         registerView();
     } elseif ($_GET['action'] == 'addUser') {
-        if(isset($_POST['login'], $_POST['password'])) {
-            addUser($_POST['login'], $_POST['password']);
+        if(!empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['verifyPassword'])) {
+            if ($_POST['password'] == $_POST['verifyPassword']) {
+                addUser($_POST['login'], $_POST['password']);
+            } else {
+                $_SESSION['error'] = 'addUserVerify';
+                displayError();
+            }
+        } else {
+            $_SESSION['error'] = 'addUser';
+            displayError();
         }
     } elseif ($_GET['action'] == 'logView') {
         getLogView();
     } elseif ($_GET['action'] == 'adminChecking') {
-        if(isset($_POST['login'], $_POST['password'])) {
+        if(!empty($_POST['login']) && !empty($_POST['password'])) {
             getAdminInfos($_POST['login']);
+        } else {
+            $_SESSION['error'] = 'adminChecking';
+            displayError();
         }
     } elseif($_GET['action'] == 'admin') {
         if (isset($_SESSION['login'])) {

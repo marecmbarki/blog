@@ -6,7 +6,7 @@ require('controller/controller.php');
 
 if (isset($_GET['action'])) {
     if($_GET['action'] == 'createPost') {
-        if(isset($_POST['name'], $_POST['message'])) {
+        if(!empty($_POST['name']) && !empty($_POST['message'])) {
             if (isset($_SESSION['login'])) {
                 createPost();
             }
@@ -16,7 +16,7 @@ if (isset($_GET['action'])) {
         }
     } elseif ($_GET['action'] == 'displayPost') {
         if (isset($_GET['id'])) {
-            if(isset($_POST['nameUpdated'], $_POST['messageUpdated'])) {
+            if(!empty($_POST['nameUpdated']) &&  !empty($_POST['messageUpdated'])) {
                 postUpdate($_POST['nameUpdated'], $_POST['messageUpdated'], $_GET['id']);
             } else {
                 readPost($_GET['id']);

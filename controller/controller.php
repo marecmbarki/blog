@@ -1,9 +1,9 @@
 <?php
 
 require('model/model.php');
-require('model/comment_manager.php');
-require('model/blog_manager.php');
-require('model/admin_manager.php');
+require('model/comments/comment_manager.php');
+require('model/blog/blog_manager.php');
+require('model/admin/admin_manager.php');
 require('controller/backend/admin_control.php');
 require('controller/frontend/user_control.php');
 $adminControl = new AdminControl();

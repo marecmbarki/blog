@@ -5,7 +5,7 @@ class UserControl {
         $blogManager = new BlogManager();
         $posts = $blogManager->displayPosts();
     
-        require('view/view.php');
+        require('view/frontend/view.php');
     }
 
     public function readPost($id) {
@@ -14,7 +14,7 @@ class UserControl {
         $commentManager = new CommentManager();
         $comments = $commentManager->getComments($id);
     
-        require('view/post_view.php');
+        require('view/frontend/post_view.php');
     }
 
     public function addComment($postId, $author, $comment) {
@@ -24,16 +24,16 @@ class UserControl {
         $post = $blogManager->getPost($postId);
         $comments = $commentManager->getComments($postId);
         
-        require('view/post_view.php');
+        require('view/frontend/post_view.php');
     }
 
     public function registerView() {
-        require('view/register_view.php');
+        require('view/frontend/register_view.php');
     }
 
 
     public function getLogView() {
-        require('view/log_view.php');
+        require('view/frontend/log_view.php');
     }
 
     public function reportComment($postId, $id) {
@@ -43,10 +43,10 @@ class UserControl {
         $post = $blogManager->getPost($postId);
         $comments = $commentManager->getComments($postId);
     
-        require('view/post_view.php');
+        require('view/frontend/post_view.php');
     }
 
     public function displayError() {
-        require('view/error_view.php');
+        require('view/frontend/error_view.php');
     }
 }

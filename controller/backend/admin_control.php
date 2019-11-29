@@ -10,14 +10,14 @@ class AdminControl {
         $commentManager = new CommentManager();
         $reportedComments = $commentManager->getReportedComments();
     
-        require('view/admin_view.php');
+        require('view/backend/admin_view.php');
     }
 
     public function getUpdatePage($postId) {
         $blogManager = new BlogManager();
         $post = $blogManager->getPost($postId);
     
-        require('view/update.php');
+        require('view/backend/update.php');
     }
 
     public function postUpdate($name, $message, $postId) {    
@@ -27,7 +27,7 @@ class AdminControl {
         $commentManager = new CommentManager();
         $comments = $commentManager->getComments($postId);
         
-        require('view/post_view.php');
+        require('view/frontend/post_view.php');
     }
 
     public function postDelete ($postId) {
@@ -38,7 +38,7 @@ class AdminControl {
         $reportedComments = $commentManager->getReportedComments();
         $posts = $blogManager->displayPosts();
     
-        require('view/admin_view.php');
+        require('view/backend/admin_view.php');
     }
 
     public function deleteComments($postId) {
@@ -48,7 +48,7 @@ class AdminControl {
         $post = $blogManager->getPost($postId);
         $comments = $commentManager->getComments($postId);
     
-        require('view/post_view.php');
+        require('view/frontend/post_view.php');
     }
 
     public function deleteComment($postId, $commentId) {
@@ -58,7 +58,7 @@ class AdminControl {
         $post = $blogManager->getPost($postId);
         $comments = $commentManager->getComments($postId);
     
-        require('view/post_view.php');
+        require('view/frontend/post_view.php');
     }
 
     public function addUser($login, $password) {
@@ -67,14 +67,14 @@ class AdminControl {
         $adminManager->newAdmin($login, $password);
         $admin = $adminManager->checkAdmin($login);
         
-        require('view/adminCheck_view.php');
+        require('view/backend/adminCheck_view.php');
     }
 
     public function getAdminInfos($login) {
         $adminManager = new AdminManager();
         $admin = $adminManager->checkAdmin($login);
         
-        require('view/adminCheck_view.php');
+        require('view/backend/adminCheck_view.php');
     }
 
     public function displayAdminSpace() {
@@ -82,6 +82,6 @@ class AdminControl {
         $posts = $blogManager->displayPosts();
         $commentManager = new CommentManager();
         $reportedComments = $commentManager->getReportedComments();
-        require('view/admin_view.php');
+        require('view/backend/admin_view.php');
     }
 }

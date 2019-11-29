@@ -8,7 +8,7 @@ if (isset($_GET['action'])) {
     if($_GET['action'] == 'createPost') {
         if(!empty($_POST['name']) && !empty($_POST['message'])) {
             if (isset($_SESSION['login'])) {
-                createPost();
+                createPost($_SESSION['login']);
             }
         } else {
             $_SESSION['error'] = 'createPost';

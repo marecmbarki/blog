@@ -65,9 +65,10 @@ function postDelete ($postId) {
     $blogManager->getDeletePost($postId);
     $commentManager = new CommentManager();
     $commentManager->getDeleteComments($postId);
+    $reportedComments = $commentManager->getReportedComments();
     $posts = $blogManager->displayPosts();
 
-    require('view/view.php');
+    require('view/admin_view.php');
 }
 
 function deleteComments($postId) {
@@ -117,7 +118,7 @@ function getAdminInfos($login) {
 function displayAdminSpace() {
     $blogManager = new BlogManager();
     $posts = $blogManager->displayPosts();
-    $commentManager = new CommentManage();
+    $commentManager = new CommentManager();
     $reportedComments = $commentManager->getReportedComments();
     require('view/admin_view.php');
 }

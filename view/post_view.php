@@ -21,10 +21,10 @@
             <input type="submit" />
         </div>
     </form>
+    <?php if (isset($_SESSION['login'])) { ?>
     <a href="index.php?action=editArticle&amp;id=<?= $_GET['id'] ?>">Modifier le Post</a>
     <a href="index.php?action=deleteArticle&amp;id=<?= $_GET['id'] ?>">Supprimer le Post</a>
-    <?php if (isset($_SESSION['login'])) { ?>
-        <a href="index.php?action=admin">Retour à l'espace admin</a>
+    <a href="index.php?action=admin">Retour à l'espace admin</a>
     <?php } else { ?>
         <a href="index.php">Retour aux billets</a>
     <?php } ?>
@@ -36,7 +36,9 @@
         <p>
             <strong><?= htmlspecialchars($comment['author']) ?></strong> : <?= nl2br(htmlspecialchars($comment['comment'])) ?>
         </p>
+        <?php if(isset($_SESSION['login'])) { ?>
         <a href="index.php?action=deleteComment&amp;postId=<?= $_GET['id'] ?>&amp;id=<?= $comment['id'] ?>">Supprimer le commentaire</a>
+        <?php } ?>
         <a href="index.php?action=reportComment&amp;postId=<?= $_GET['id'] ?>&amp;id=<?= $comment['id'] ?>">Signaler le commentaire</a>
     <?php } ?>
 </div>

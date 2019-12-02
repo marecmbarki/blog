@@ -7,7 +7,7 @@
     <label> Password : <input type="password" name="password" /></label>
     <input type="submit" />
 </form>
-
+<a href="index.php">RETOUR</a>
 <?php $content = ob_get_clean(); ?>
 
 <?php require('view/template.php') ?>

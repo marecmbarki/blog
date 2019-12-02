@@ -1,21 +1,22 @@
 <?php
-class BlogManager {
+class BlogManager extends DatabaseConnect {
+    
     public function displayPosts() {
-        $db = dbConnect();
+        $db = $this->dbConnect();
         $req = $db->query('SELECT name, message, id FROM blog ORDER BY ID DESC LIMIT 0, 10');
         
         return $req;
     }
     
     public function newPost() {
-        $db = dbConnect();
+        $db = $this->dbConnect();
         $req = $db->prepare('INSERT INTO blog (name, message) VALUES(?, ?)');
     
         $req->execute(array($_POST['name'], $_POST['message']));
     }
 
     public function getPost($id) {
-        $db = dbConnect();
+        $db = $this->dbConnect();
         $req = $db->prepare('SELECT name, message FROM blog WHERE id = ?');
         $req->execute(array($id));
         $post = $req->fetch();
@@ -24,13 +25,13 @@ class BlogManager {
     }
 
     public function updatePost($name, $message, $postId) {
-        $db = dbConnect();
+        $db = $this->dbConnect();
         $req = $db->prepare('UPDATE blog SET name = ?, message = ? WHERE id = ?');
         $req->execute(array($name, $message, $postId));
     }
 
     public function getDeletePost($postId) {
-        $db = dbConnect();
+        $db = $this->dbConnect();
         $req = $db->prepare('DELETE FROM blog WHERE id = ?');
         $req->execute(array($postId));
     }

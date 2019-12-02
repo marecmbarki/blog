@@ -7,5 +7,6 @@
     <label> Confirmer le mot de Passe : <input type="password" name="verifyPassword" />
     <input type="submit" />
 </form>
+<a href="index.php">RETOUR</a>
 <?php $content = ob_get_clean(); ?>
 <?php require('view/template.php'); ?>

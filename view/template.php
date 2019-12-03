@@ -9,13 +9,16 @@
         <script src="js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
         <script type="text/javascript">
             tinymce.init({
-                selector: '#message'
+                selector: '#message',
+                language: "fr_FR"
             });
             tinymce.init({
-                selector: '#comment'
+                selector: '#comment',
+                language: "fr_FR"
             });
             tinymce.init({
-                selector: '#messageUpdated'
+                selector: '#messageUpdated',
+                language: "fr_FR"
             });
         </script>
     </head>

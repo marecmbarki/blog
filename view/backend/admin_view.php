@@ -6,14 +6,14 @@
         <h2>Nouveau Billet</h2>
         <form action="index.php?action=createPost" method="POST">
             <p><label>Pseudo : <input type="text" name="name" /></label></p>
-            <p><label>Message : <input type="text" name="message" /></label></p>
+            <p><label>Message : <textarea name="message" id="message"></textarea></label></p>
             <p><input type="submit" /></p>
         </form>
         <div>
             <h3>Liste de vos Billets</h3>
     <?php while($post = $posts->fetch()) { ?>
             <p>
-                <strong><?= htmlspecialchars($post['name']) ?></strong> : <?= nl2br(htmlspecialchars($post['message'])) ?>
+                <strong><?= $post['name'] ?></strong> : <?= nl2br($post['message']) ?>
             </p>
             <a href="index.php?id=<?= $post['id'] ?>&amp;action=displayPost">voir</a>
     <?php } 
@@ -24,7 +24,7 @@
             <p>Liste des commentaires signalés : </p>
             <?php while($reportedComment = $reportedComments->fetch()) { ?>
                 <p>
-                <strong><?= htmlspecialchars($reportedComment['author']) ?></strong> : <?= nl2br(htmlspecialchars($reportedComment['comment'])) ?>
+                <strong><?= $reportedComment['author'] ?></strong> : <?= nl2br($reportedComment['comment']) ?>
             </p>
             <a href="index.php?id=<?= $reportedComment['postId'] ?>&amp;action=displayPost">Voir le post</a>
             <?php } ?>

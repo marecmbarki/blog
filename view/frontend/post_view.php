@@ -15,7 +15,7 @@
         </div>
         <div>
             <label>Commentaire</label><br />
-            <textarea name="comment"></textarea>
+            <textarea name="comment" id="comment"></textarea>
         </div>
         <div>
             <input type="submit" />
@@ -34,7 +34,7 @@
     <h3>Commentaires du Post</h3>
     <?php while ($comment = $comments->fetch()) { ?>
         <p>
-            <strong><?= htmlspecialchars($comment['author']) ?></strong> : <?= nl2br(htmlspecialchars($comment['comment'])) ?>
+            <strong><?= $comment['author'] ?></strong> : <?= nl2br($comment['comment']) ?>
         </p>
         <?php if(isset($_SESSION['login'])) { ?>
         <a href="index.php?action=deleteComment&amp;postId=<?= $_GET['id'] ?>&amp;id=<?= $comment['id'] ?>">Supprimer le commentaire</a>

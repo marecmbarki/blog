@@ -3,6 +3,12 @@
 session_start();
 
 require('controller/controller.php');
+$controllers = new Controllers();
+$controllers->loadControllers();
+
+$userControl = new UserControl();
+$adminControl = new AdminControl();
+
 
 
 if (isset($_GET['action'])) {

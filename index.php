@@ -9,8 +9,6 @@ $controllers->loadControllers();
 $userControl = new UserControl();
 $adminControl = new AdminControl();
 
-
-
 if (isset($_GET['action'])) {
     if($_GET['action'] == 'createPost') {
         if(!empty($_POST['name']) && !empty($_POST['message'])) {

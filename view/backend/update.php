@@ -1,23 +1,28 @@
 <?php $title = 'BLOG'; ?>
 
 <?php ob_start(); ?>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">    
+    <button class="btn btn-success" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <a href="index.php?action=displayPost&amp;id=<?= $_GET['id'] ?>">ANNULER</a>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <h1><img src="public/images/update.png" alt="modifier un post" class="figure-img img-fluid rounded" />Modifier</h1>
+            </li>
+        </ul>
+    </div>
+</nav>
 <div>
-    <img src="public/images/update.png" alt="modifier un post" class="figure-img img-fluid rounded" />
-    <h1>MODIFIER</h1>
     <form action="index.php?action=displayPost&amp;id=<?= $_GET['id'] ?>" method="post">
-        <div class="form-group">    
-            <input type="text" name="nameUpdated" value="<?= $post['name'] ?>" class="form-control"/>
-        </div>    
+        <div class="form-group">
+              <input type="text" name="nameUpdated" value="<?= $post['name'] ?>" class="form-control"/>
+        </div>
         <div class="form-group">
             <label>Message : <textarea name="messageUpdated" id="messageUpdated" class="form-control"><?= $post['message'] ?></textarea></label>
         </div>
-        <div class="form-group">
             <input type="submit" class="btn btn-success" value="Apporter les modifications" />
-        </div>
     </form>
-    <button class="btn btn-dark">
-        <a href="index.php?action=displayPost&amp;id=<?= $_GET['id'] ?>">ANNULER</a>
-    </button>
 </div>
 <?php $content = ob_get_clean(); ?>
 <?php require('view/template.php'); ?>

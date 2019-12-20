@@ -1,6 +1,14 @@
 <?php $title = 'ERREUR' ?>
 <?php ob_start(); ?>
-<h1 class="text-center">ERREUR</h1>
+<div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <h1 class="text-center">ERREUR</h1>
+            </li>
+        </ul>
+    </div>
+<?php $navbar = ob_get_clean(); ?>
+<?php ob_start(); ?>
 <?php if (isset($_SESSION['error'])) {
     if ($_SESSION['error'] == 'createPost') { ?>
         <div class="alert alert-dismissible alert-danger">

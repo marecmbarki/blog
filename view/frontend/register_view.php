@@ -1,7 +1,6 @@
 <?php $title = 'INSCRIPTION'; ?>
 <?php ob_start(); ?>
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">    
-    <button class="btn btn-success" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+<button class="btn btn-success" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <a href="index.php">RETOUR</a>
     </button>
     <div class="collapse navbar-collapse" id="navbarColor01">
@@ -11,7 +10,8 @@
             </li>
         </ul>
     </div>
-</nav>
+<?php $navbar = ob_get_clean(); ?>
+<?php ob_start(); ?>
 <div>
     <form action="index.php?action=addUser" method="post">
         <label>Mes informations</label>

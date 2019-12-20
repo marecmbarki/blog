@@ -1,9 +1,7 @@
 <?php $title = 'BLOG'; ?>
 
 <?php ob_start(); ?>
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">    
-    <?php if (isset($_SESSION['login'])) { ?>
+<?php if (isset($_SESSION['login'])) { ?>
     <button class="btn btn-success" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
         <a href="index.php?action=admin">Retour à l'espace admin</a>
     </button>
@@ -19,7 +17,8 @@
             </li>
         </ul>
     </div>
-</nav>
+<?php $navbar = ob_get_clean(); ?>
+<?php ob_start(); ?>
 <div class="jumbotron" style="background-color: #535453;">
     <p><?= nl2br($post['message']) ?></p>
     <div class="btn-group btn-group-toggle" data-toggle="buttons">

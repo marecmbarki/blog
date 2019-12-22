@@ -3,16 +3,16 @@
 <?php ob_start(); ?>
 <button class="btn btn-success" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
         <a href="index.php">RETOUR</a>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarColor01">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <h1><img src="public/images/login.png" alt="Connexion" class="figure-img img-fluid rounded" />Connexion</h1>
-            </li>
-        </ul>
-    </div>
+</button>
+<div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <h1><img src="public/images/login.png" alt="Connexion" class="figure-img img-fluid rounded" />Connexion</h1>
+        </li>
+    </ul>
+</div>
 <?php $navbar = ob_get_clean(); ?>
-    <?php ob_start(); ?>
+<?php ob_start(); ?>
 <div>
     <form action="index.php?action=adminChecking" method="post">
         <label>Accéder à mon blog</label>

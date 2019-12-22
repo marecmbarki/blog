@@ -12,7 +12,7 @@
         </ul>
     </div>
 <?php $navbar = ob_get_clean(); ?>
-    <?php ob_start(); ?>
+<?php ob_start(); ?>
 <div>
     <form action="index.php?action=displayPost&amp;id=<?= $_GET['id'] ?>" method="post">
         <div class="form-group">

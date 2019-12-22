@@ -9,34 +9,28 @@
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="index.php?action=logView"><img src="public/images/login.png" alt="Connexion"/></a>
+        <a class="nav-link" href="index.php?action=logView"><img src="public/images/login.png" alt="Connexion"/></a>CONNEXION</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="index.php?action=logView">CONNEXION</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="index.php?action=registerView"><img src="public/images/register.png" alt="Formulaire d'inscription" /></a>
-      </li>
-      <li class="nav-item">
-      <a class="nav-link" href="index.php?action=registerView">INSCRITPTION</a>
+      <a class="nav-link" href="index.php?action=registerView"><img src="public/images/register.png" alt="Formulaire d'inscription" />INSCRITPTION</a>
       </li>
     </ul>
   </div>
 <?php $navbar = ob_get_clean(); ?>
-    <?php ob_start(); ?>
+<?php ob_start(); ?>
 <?php if (isset($_SESSION['login'])) {
-    unset($_SESSION['login']);
+  unset($_SESSION['login']);
 } ?>
 <?php while($post = $posts->fetch()) { ?>
     <div class="jumbotron" style="background-color: #535453;">
         <h2 class="lead"><?= htmlspecialchars($post['name']) ?></h2>
         <hr class="my-4">
-        <?php if (strlen($post['message']) <= 50) { ?>
+<?php if (strlen($post['message']) <= 50) { ?>
         <p><?= nl2br($post['message']) ?></p>
-        <?php } else { ?>
-        <?php  $extract = substr($post['message'], 0, -50); ?>
+<?php } else { ?>
+<?php  $extract = substr($post['message'], 0, -50); ?>
         <p><?= nl2br($extract) ?></p>
-        <?php } ?>
+<?php } ?>
         <p class="lead">
             <a class="btn btn-primary btn-lg" href="index.php?id=<?= $post['id'] ?>&amp;action=displayPost">voir plus</a>
         </p>

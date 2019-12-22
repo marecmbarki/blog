@@ -14,31 +14,31 @@
     <button class="btn btn-warning">
         <a href="#reported_comments">Accéder à la liste des commentaires signalés</a>
     </button>
-    <?php $navbar = ob_get_clean(); ?>
-    <?php ob_start(); ?>
-<div>
-    <form action="index.php?action=createPost" method="post">
-        <label>Nouveau billet</label>
-        <div class="form-group">
-            <input type="text" name="name" class="form-control" placeholder="Pseudo" />
-        </div>
-        <div class="form-group">
-            <label>Message <textarea name="message" id="message" class="form-control" ></textarea></label>
-        </div>
-        <input type="submit" value="POSTER" class="btn btn-primary" />
-    </form>
-</div>
+<?php $navbar = ob_get_clean(); ?>
+<?php ob_start(); ?>
+    <div>
+        <form action="index.php?action=createPost" method="post">
+            <label>Nouveau billet</label>
+            <div class="form-group">
+                <input type="text" name="name" class="form-control" placeholder="Pseudo" />
+            </div>
+            <div class="form-group">
+                <label>Message <textarea name="message" id="message" class="form-control" ></textarea></label>
+            </div>
+            <input type="submit" value="POSTER" class="btn btn-primary" />
+        </form>
+    </div>
     <h2>Derniers billets</h2>
-    <?php while($post = $posts->fetch()) { ?>
+<?php while($post = $posts->fetch()) { ?>
         <div class="jumbotron" style="background-color: #535453;">
                 <h2 class="lead"><?= htmlspecialchars($post['name']) ?></h2>
                 <hr class="my-4">
-                <?php if (strlen($post['message']) <= 50) { ?>
+<?php if (strlen($post['message']) <= 50) { ?>
                 <p><?= nl2br($post['message']) ?></p>
-                <?php } else { ?>
+<?php } else { ?>
                 <?php  $extract = substr($post['message'], 0, -50); ?>
                 <p><?= nl2br($extract) ?></p>
-                <?php } ?>
+<?php } ?>
                 <p class="lead">
                     <a class="btn btn-primary btn-lg" href="index.php?id=<?= $post['id'] ?>&amp;action=displayPost">voir plus</a>
                 </p>

@@ -3,7 +3,7 @@ class BlogManager extends DatabaseConnect {
     
     public function displayPosts() {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT name, message, id FROM blog ORDER BY ID DESC LIMIT 0, 10');
+        $req = $db->query('SELECT name, message, id, DATE_FORMAT(date, \'%d/%m/%Y %Hh%i\') AS date FROM blog ORDER BY ID DESC LIMIT 0, 10');
         
         return $req;
     }
@@ -17,7 +17,7 @@ class BlogManager extends DatabaseConnect {
 
     public function getPost($id) {
         $db = $this->dbConnect();
-        $req = $db->prepare('SELECT name, message FROM blog WHERE id = ?');
+        $req = $db->prepare('SELECT name, message, DATE_FORMAT(date, \'%d/%m/%Y %Hh%i\') AS date FROM blog WHERE id = ?');
         $req->execute(array($id));
         $post = $req->fetch();
     

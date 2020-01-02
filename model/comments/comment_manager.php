@@ -5,7 +5,7 @@ class CommentManager extends DatabaseConnect {
     
     public function getComments($postId) {
         $db = $this->dbConnect();
-        $req = $db->prepare('SELECT author, comment, id, flag FROM comments WHERE postId = ? ORDER BY ID DESC');
+        $req = $db->prepare('SELECT author, comment, id, flag, DATE_FORMAT(date, \'%d/%m/%Y %Hh%i\') AS date FROM comments WHERE postId = ? ORDER BY ID DESC');
         $req->execute(array($postId));
         $comments = $req;
     
@@ -38,7 +38,7 @@ class CommentManager extends DatabaseConnect {
 
     public function getReportedComments() {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT id, author, comment, flag, postId FROM comments WHERE flag = 1 ORDER BY ID DESC');
+        $req = $db->query('SELECT id, author, comment, flag, postId, DATE_FORMAT(date, \'%d/%m/%Y %Hh%i\') AS date FROM comments WHERE flag = 1 ORDER BY ID DESC');
         $reportedComments = $req;
     
         return $reportedComments;

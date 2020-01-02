@@ -1,19 +1,22 @@
 
 <?php $title = 'ESPACE ADMIN'; ?>
-    <?php ob_start(); ?> 
-    <button class="btn btn-danger" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <?php ob_start(); ?>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <h1 id="admin-name">Bonjour <?= $_SESSION['login'] ?> !</h1>
+    <button class="btn btn-danger">
         <a href="index.php">Déconnexion</a>
     </button>
     <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item ml-3">
-                <h1>Bonjour <?= $_SESSION['login'] ?> !</h1>
+                <button class="btn btn-warning">
+                    <a href="#reported_comments">Accéder à la liste des commentaires signalés</a>
+                </button>
             </li>
         </ul>
     </div>
-    <button class="btn btn-warning">
-        <a href="#reported_comments">Accéder à la liste des commentaires signalés</a>
-    </button>
 <?php $navbar = ob_get_clean(); ?>
 <?php ob_start(); ?>
     <div>
@@ -34,14 +37,14 @@
     </div>
     <h2>Derniers billets</h2>
 <?php while($post = $posts->fetch()) { ?>
-        <div class="jumbotron" style="background-color: #535453;">
+        <div class="jumbotron">
+                <p><?=  $post['date'] ?></p>
                 <h2 class="lead"><?= htmlspecialchars($post['name']) ?></h2>
                 <hr class="my-4">
-<?php if (strlen($post['message']) <= 50) { ?>
+<?php if (strlen($post['message']) <= 40) { ?>
                 <p><?= nl2br($post['message']) ?></p>
 <?php } else { ?>
-                <?php  //$extract = substr($post['message'], 30); ?>
-                <p><?= nl2br(substr($post['message'], 20)) ?></p>
+                <p><?= nl2br(substr($post['message'], 0, 40)) ?>...</p>
 <?php } ?>
                 <p class="lead">
                     <a class="btn btn-primary btn-lg" href="index.php?id=<?= $post['id'] ?>&amp;action=displayPost">voir plus</a>
@@ -50,7 +53,8 @@
     <?php } ?>
 <h3>Commentaires signalés</h3>
 <?php while($reportedComment = $reportedComments->fetch()) { ?>
-    <div class="jumbotron" id="reported_comments" style="background-color: #cc8800">
+    <div class="jumbotron" id="reported_comments">
+        <p><?= $reportedComment['date'] ?></p>
         <h4 class="lead"><?= $reportedComment['author'] ?></h4>
         <hr class="my-4">
         <p><?= nl2br($reportedComment['comment']) ?></p>

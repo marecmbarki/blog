@@ -6,7 +6,7 @@
 </button>
 <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
+        <li class="nav-item ml-3">
             <h1><img src="public/images/login.png" alt="Connexion" class="figure-img img-fluid rounded" />Connexion</h1>
         </li>
     </ul>

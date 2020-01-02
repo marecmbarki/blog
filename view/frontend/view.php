@@ -1,7 +1,7 @@
 <?php $title = 'BLOG'; ?>
 
 <?php ob_start(); ?>
-  <h1 class="font-weight-bolder" style="font-size:1.5rem;"><img src="public/images/blog.png" alt="Mon blog"/>MON BLOG</h1>
+  <h1 class="font-weight-bolder" id="home-title"><img src="public/images/blog.png" alt="Mon blog"/>MON BLOG</h1>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -22,14 +22,14 @@
   unset($_SESSION['login']);
 } ?>
 <?php while($post = $posts->fetch()) { ?>
-    <div class="jumbotron" style="background-color: #535453;">
-        <h2 class="lead"><?= htmlspecialchars($post['name']) ?></h2>
-        <hr class="my-4">
-<?php if (strlen($post['message']) <= 50) { ?>
+    <div class="jumbotron">
+      <p><?=  $post['date'] ?></p>
+      <h2 class="lead"><?= htmlspecialchars($post['name']) ?></h2>
+      <hr class="my-4">
+<?php if (strlen($post['message']) <= 40) { ?>
         <p><?= nl2br($post['message']) ?></p>
 <?php } else { ?>
-<?php  $extract = substr($post['message'], 0, -50); ?>
-        <p><?= nl2br($extract) ?></p>
+        <p><?= nl2br(substr($post['message'], 0, 40)) ?>...</p>
 <?php } ?>
         <p class="lead">
             <a class="btn btn-primary btn-lg" href="index.php?id=<?= $post['id'] ?>&amp;action=displayPost">voir plus</a>

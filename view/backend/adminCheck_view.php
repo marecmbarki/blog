@@ -1,6 +1,7 @@
 <?php $password = sha1($_POST['password']); ?>
 <?php if($password != $admin['password']) { ?>
     <?php $title = 'ERREUR'; ?>
+    <?php $navbar = 'ERREUR'; ?>
     <?php ob_start(); ?>
     <div class="alert alert-dismissible alert-danger">
         <button type="button" class="close"><a href="index.php?action=logView">RETOUR</a></button>

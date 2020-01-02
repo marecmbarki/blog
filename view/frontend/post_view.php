@@ -12,14 +12,14 @@
 <?php } ?>
     <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
+            <li class="nav-item ml-3">
                 <h2>Posté par <?= $post['name'] ?></h2>
             </li>
         </ul>
     </div>
 <?php $navbar = ob_get_clean(); ?>
 <?php ob_start(); ?>
-    <div class="jumbotron" style="background-color: #535453;">
+    <div class="jumbotron mt-2" style="background-color: #535453;">
         <p><?= nl2br($post['message']) ?></p>
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
 <?php if (isset($_SESSION['login'])) { ?>

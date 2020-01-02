@@ -6,7 +6,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
+            <li class="nav-item ml-3">
                 <h1>Bonjour <?= $_SESSION['login'] ?> !</h1>
             </li>
         </ul>
@@ -22,8 +22,12 @@
             <div class="form-group">
                 <input type="text" name="name" class="form-control" placeholder="Pseudo" />
             </div>
-            <div class="form-group">
-                <label>Message <textarea name="message" id="message" class="form-control" ></textarea></label>
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label>Message <textarea name="message" id="message" class="form-control" ></textarea></label>
+                    </div>
+                </div>
             </div>
             <input type="submit" value="POSTER" class="btn btn-primary" />
         </form>
@@ -36,8 +40,8 @@
 <?php if (strlen($post['message']) <= 50) { ?>
                 <p><?= nl2br($post['message']) ?></p>
 <?php } else { ?>
-                <?php  $extract = substr($post['message'], 0, -50); ?>
-                <p><?= nl2br($extract) ?></p>
+                <?php  //$extract = substr($post['message'], 30); ?>
+                <p><?= nl2br(substr($post['message'], 20)) ?></p>
 <?php } ?>
                 <p class="lead">
                     <a class="btn btn-primary btn-lg" href="index.php?id=<?= $post['id'] ?>&amp;action=displayPost">voir plus</a>

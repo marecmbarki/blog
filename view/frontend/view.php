@@ -8,10 +8,10 @@
 
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="index.php?action=logView"><img src="public/images/login.png" alt="Connexion"/></a>CONNEXION</a>
+      <li class="nav-item ml-3">
+        <a class="nav-link" href="index.php?action=logView"><img src="public/images/login.png" alt="Connexion"/>CONNEXION</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item ml-3">
       <a class="nav-link" href="index.php?action=registerView"><img src="public/images/register.png" alt="Formulaire d'inscription" />INSCRITPTION</a>
       </li>
     </ul>

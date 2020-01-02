@@ -6,7 +6,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
+            <li class="nav-item ml-3">
                 <h1><img src="public/images/update.png" alt="modifier un post" class="figure-img img-fluid rounded" />Modifier</h1>
             </li>
         </ul>
@@ -15,11 +15,15 @@
 <?php ob_start(); ?>
 <div>
     <form action="index.php?action=displayPost&amp;id=<?= $_GET['id'] ?>" method="post">
-        <div class="form-group">
+        <div class="form-group mt-3">
               <input type="text" name="nameUpdated" value="<?= $post['name'] ?>" class="form-control"/>
         </div>
-        <div class="form-group">
-            <label>Message : <textarea name="messageUpdated" id="messageUpdated" class="form-control"><?= $post['message'] ?></textarea></label>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label>Message : <textarea name="messageUpdated" id="messageUpdated" class="form-control"><?= $post['message'] ?></textarea></label>
+                </div>
+            </div>
         </div>
             <input type="submit" class="btn btn-success" value="Apporter les modifications" />
     </form>
